@@ -2,7 +2,7 @@ const header = (() => {
   const nav = document.createElement('nav')
   nav.innerHTML = `
     <ul>
-      <li>Product  <i class="fas fa-chevron-down"></i>
+      <li>Product    <i class="fas fa-chevron-down"></i>
         <ul class = 'dropDown'>
           <li>
             <h6>Prototyping Tool</h6>
@@ -20,7 +20,7 @@ const header = (() => {
       </li>
       <li>Projects</li>
       <li>Examples</li>
-      <li>Free Tools<i class="fas fa-chevron-down"></i>
+      <li>Free Tools    <i class="fas fa-chevron-down"></i>
         <ul class = 'dropDown'>
           <li>
               <h6>Free wireframing tool</h6>

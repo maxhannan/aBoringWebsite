@@ -29,7 +29,10 @@ module.exports = {
       },
       {
         test: /\.(svg|eot|woff|woff2|ttf)$/,
-        use: ['file-loader']
+        loader: 'file-loader',
+        options: {
+          publicPath: 'assets'
+        }
       }
     ]
   }
