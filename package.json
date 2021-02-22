@@ -1,0 +1,39 @@
+{
+  "name": "aBoringWebsite",
+  "version": "1.0.0",
+  "description": "A place to practice some nav designs and other UX elements",
+  "main": "index.js",
+  "private": true,
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "watch": "webpack --watch",
+    "start": "webpack serve --open",
+    "build": "webpack"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/maxhannan/aBoringWebsite.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/maxhannan/aBoringWebsite/issues"
+  },
+  "homepage": "https://github.com/maxhannan/aBoringWebsite#readme",
+  "devDependencies": {
+    "css-loader": "^5.0.2",
+    "file-loader": "^6.2.0",
+    "sass": "^1.32.8",
+    "sass-loader": "^11.0.1",
+    "style-loader": "^2.0.0",
+    "webpack": "^5.23.0",
+    "webpack-cli": "^4.5.0",
+    "webpack-dev-server": "^3.11.2"
+  },
+  "dependencies": {
+    "@fortawesome/fontawesome-free": "^5.15.2",
+    "date-fns": "^2.17.0",
+    "lodash": "^4.17.20"
+  }
+}
