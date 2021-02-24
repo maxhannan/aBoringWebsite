@@ -4,9 +4,10 @@ import imgOne from './photos/one.jpg'
 import imgTwo from './photos/two.jpg'
 import imgThree from './photos/three.jpg'
 import imgFour from './photos/four.jpg'
+import about from './photos/about.jpg'
 
 const app = document.querySelector('#app')
-const images = [imgFour, imgOne, imgTwo, imgThree, imgFour, imgOne]
+const images = [imgFour, imgOne, imgTwo, imgThree, about, imgFour, imgOne]
 
 const addImages = (images, container) => {
   images.forEach(img => {
@@ -27,7 +28,7 @@ frame.appendChild(imgContainer)
 app.appendChild(frame)
 
 // BUTTONS
-const transformOn = 'transform 500ms ease-in-out'
+const transformOn = 'transform 500ms'
 const transformOff = '0ms all'
 const width = 70
 const unit = 'vw'
@@ -39,6 +40,10 @@ const sleep = (ms) => {
 }
 
 const handlePrev = async () => {
+  if (play.innerHTML === 'pause') {
+    console.log('TT')
+    handlePlay()
+  }
   progress += width
   imgContainer.style.transition = transformOn
   imgContainer.style.transform = `translateX(${progress}${unit})`

@@ -1,27 +1,31 @@
 $bgColor: #253257 
+$slideWidth: 70vw
+$slideHeight: $slideWidth*.6
 
 body
   background: 
-    color: white
+    color: $bgColor
   display: flex
   align-items: center
   justify-content: center
   height: 100vh
 
 .frame
-  height: 42vw
-  width: 69.9vw
+  height: $slideHeight
+  width: $slideWidth - .2
   overflow: hidden
 
 .imgContainer
   display: flex
-  transform: translateX(-70vw) 
-  transition: transform 500ms ease
+  transform: translateX(-$slideWidth) 
+  transition: transform 500ms
 
 img
-  height: 42vw
+  height:$slideHeight
+  width: $slideWidth
   
 .btnHolder
   display: flex
-  width: 70vw
-  justify-content: space-between
+  width: $slideWidth - .2
+  margin-top: 3%
+  justify-content: space-around
