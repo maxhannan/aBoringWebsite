@@ -1,33 +1,24 @@
 import './styles/styles.sass'
-// import '@fortawesome/fontawesome-free/js/all.min'
+import '@fortawesome/fontawesome-free/js/all.min'
 import imgOne from './photos/one.jpg'
 import imgTwo from './photos/two.jpg'
 import imgThree from './photos/three.jpg'
 import imgFour from './photos/four.jpg'
 import about from './photos/about.jpg'
-
+// App DIV
 const app = document.querySelector('#app')
+// Image Array
 const images = [imgFour, imgOne, imgTwo, imgThree, about, imgFour, imgOne]
-
-const addImages = (images, container) => {
-  images.forEach(img => {
+// Adds images to slideshow
+const addImages = (imagesArray = [], container) => {
+  imagesArray.forEach(img => {
     const newImg = new Image()
     newImg.src = img
     container.appendChild(newImg)
   })
 }
 
-const frame = document.createElement('div')
-frame.className = 'frame'
-const imgContainer = document.createElement('div')
-imgContainer.className = 'imgContainer'
-
-addImages(images, imgContainer)
-
-frame.appendChild(imgContainer)
-app.appendChild(frame)
-
-// BUTTONS
+// Constants and variables
 const transformOn = 'transform 500ms'
 const transformOff = '0ms all'
 const width = 70
@@ -35,11 +26,13 @@ const unit = 'vw'
 let progress = -width
 let currentImg = 1
 
+// Sleep Function
 const sleep = (ms) => {
   return new Promise(resolve => setTimeout(resolve, ms))
 }
 
 const handlePrev = async () => {
+  // stop autoplay if you press the button
   if (play.innerHTML === 'pause') {
     console.log('TT')
     handlePlay()
@@ -48,6 +41,7 @@ const handlePrev = async () => {
   imgContainer.style.transition = transformOn
   imgContainer.style.transform = `translateX(${progress}${unit})`
   currentImg--
+  // Logic to make it loop infinitely
   if (currentImg === 0) {
     await sleep(500)
     progress = -width * (images.length - 2)
@@ -56,16 +50,17 @@ const handlePrev = async () => {
     currentImg = (images.length - 2)
   }
 }
-
+// Function fot forward
 const handleNext = async (e, program = false) => {
+  // stop autoplay if you press the button
   if (play.innerHTML === 'pause' && program === false) {
-    console.log('TT')
     handlePlay()
   }
   progress -= width
   imgContainer.style.transition = transformOn
   imgContainer.style.transform = `translateX(${progress}${unit})`
   currentImg++
+  // Logic to make it loop infinitely
   if (currentImg === images.length - 1) {
     await sleep(500)
     progress = -width
@@ -74,7 +69,7 @@ const handleNext = async (e, program = false) => {
     currentImg = 1
   }
 }
-
+// Toggles Play State
 const handlePlay = () => {
   if (auto) {
     auto = false
@@ -85,9 +80,9 @@ const handlePlay = () => {
   autoPlay()
   play.innerHTML = 'pause'
 }
-
+// AutoPlay Flag
 let auto = true
-
+// AutoPlay Logic
 const autoPlay = async () => {
   if (auto) {
     await sleep(2000)
@@ -96,15 +91,27 @@ const autoPlay = async () => {
     autoPlay()
   }
 }
-
+// Build Frame Div
+const frame = document.createElement('div')
+frame.className = 'frame'
+// Build Img Container Div
+const imgContainer = document.createElement('div')
+imgContainer.className = 'imgContainer'
+// Add all images to div
+addImages(images, imgContainer)
+// Render
+frame.appendChild(imgContainer)
+app.appendChild(frame)
+// Build Btn Div
 const btnHolder = document.createElement('div')
 btnHolder.className = 'btnHolder'
-
+// Creates Buttons
 const prev = document.createElement('button')
 prev.id = 'prev'
 prev.innerHTML = '<'
 prev.addEventListener('click', handlePrev)
 btnHolder.appendChild(prev)
+
 const play = document.createElement('button')
 play.id = 'play'
 play.innerHTML = 'pause'
@@ -116,7 +123,7 @@ next.id = 'next'
 next.innerHTML = '>'
 next.addEventListener('click', handleNext)
 btnHolder.appendChild(next)
-
+// Render Buttons
 app.appendChild(btnHolder)
-
+// Start AutoPlay
 autoPlay()
