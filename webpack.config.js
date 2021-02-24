@@ -28,11 +28,14 @@ module.exports = {
         ]
       },
       {
-        test: /\.(svg|eot|woff|woff2|ttf)$/,
-        loader: 'file-loader',
-        options: {
-          publicPath: 'assets'
+        test: /\.(jpg|png)$/,
+        use: {
+          loader: 'url-loader'
         }
+      },
+      {
+        test: /\.(woff|woff2|eot|ttf|otf)$/i,
+        type: 'asset/resource'
       }
     ]
   }
