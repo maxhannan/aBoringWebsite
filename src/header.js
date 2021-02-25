@@ -1,6 +1,0 @@
-const header = (() => {
-
-})()
-export {
-  header
-}

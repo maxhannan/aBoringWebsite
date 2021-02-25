@@ -1,83 +1,27 @@
+@use 'reset'
+@use 'nav'
+@use 'slider'
+
 $bgColor: #252525
-$slideWidth: 70vw
-$slideHeight: $slideWidth*.6
-$transition: transform 500ms
 
 body
   background: 
     color: $bgColor
   display: flex
+  flex-direction: column
+  justify-content: space-between
   align-items: center
-  justify-content: center
   height: 100vh
   overflow: hidden
 
-.frame
-  height: $slideHeight
-  width: $slideWidth - .3
-  overflow: hidden
+#app
+  width: 100vw
+  height: 100vh
+  padding-top: 5vh
   display: flex
+  flex-direction: column
+  justify-content: center
+  align-items: center
 
 
-.imgContainer
-  display: flex
-  transform: translateX(-$slideWidth) 
-  transition: $transition
 
-img
-  height: $slideHeight
-  width: $slideWidth
-
-  
-.btnHolder
-  display: flex
-  width: $slideWidth - .3
-  margin-top: 3%
-  justify-content: space-around
-
-  #leftContainer
-    width: 33%
-    display: flex
-    align-items: center
-    justify-content: space-around
-
-  .btn 
-    color: gray
-    opacity: .5
-    font-size: 2vw
-    transition: opacity 300ms
-    &:hover
-      opacity: 1
-  #prev
-    margin-right: auto
-  #play
-    margin-right: auto
-    font-size: 1.5vw
-
-  #rightContainer
-    width: 33%
-    display: flex
-    justify-content: flex-end
-
-  #circleHolder
-    width: 100%
-
-    display: flex
-    align-items: center
-    justify-content: space-between
-
-    .dot
-      border: 1px solid gray
-      border-radius: 50%
-      opacity: .5
-      height: 1vw
-      width: 1vw
-      transition: background-color 700ms ease, opacity 700ms ease
-
-      &:hover
-        background-color: gray
-        opacity: 1
-
-      &.active
-        background-color: gray
-      

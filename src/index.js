@@ -1,6 +1,8 @@
 import './styles/styles.sass'
+// NavBar
+import './nav'
 import slider from './slider'
-
+// Images for slider
 import imgOne from './photos/one.jpg'
 import imgTwo from './photos/two.jpg'
 import imgThree from './photos/three.jpg'
@@ -12,4 +14,4 @@ const app = document.querySelector('#app')
 // Image Array
 const images = [imgOne, imgTwo, imgThree, about, imgFour, imgOne, imgTwo, imgThree, about, imgFour]
 // Create Image Slider
-slider(images, app)
+slider(images, app, 60)
